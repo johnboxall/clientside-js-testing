@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="qunit/qunit.css">
+    <script src="qunit/qunit.js"></script>
+</head>
+<body>
+    <h1 id="qunit-header">QUnit Test Suite</h1>  
+    <h2 id="qunit-banner"></h2>  
+    <div id="qunit-testrunner-toolbar"></div>  
+    <h2 id="qunit-userAgent"></h2>  
+    <ol id="qunit-tests"></ol>  
+
+    <script src="maths.js"></script>
+    <script>
+    test('Maths.add', function() {
+        var result = Maths.add(1, 1)
+          , expected = 2;
+
+        equal(result, expected, '1 + 1 = 2');
+    });
+
+    asyncTest('Maths.asyncAdd', function() {
+        var expected = 2;
+
+        Maths.asyncAdd(1, 1, function(result) {
+            equal(result, expected, '1 + 1 = 2');
+            start();
+        });
+    });
+
+    // test('Math.subtract', function() {
+    //     var result = Maths.subtract(2, 1)
+    //       , expected = 1;
+    //     equal(result, expected, '2 - 1 = 1');
+    // })
+
+    </script>
+</body>
+</html>
